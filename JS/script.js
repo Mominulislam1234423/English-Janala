@@ -5,22 +5,45 @@ const loadLessons = () => {
         .then(json => displayLessons(json.data))
 };
 
+const removeActive = () => {
+    const lessonButtons = document.querySelectorAll(".lesson-btn");
+
+    lessonButtons.forEach(btn=> btn.classList.remove("active"));
+}
+
 const loadLevelWord = (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
         .then(res => res.json())
-        .then(data =>displayLevelWord(data.data))
+        .then(data =>{
+            removeActive();
+            const clickBtn = document.getElementById(`lesson-btn-${id}`)
+            // console.log(clickBtn)
+            clickBtn.classList.add("active");
+             displayLevelWord(data.data)
+        })
 }
 
 const displayLevelWord = (words) => {
     const wordContinar = document.getElementById('word-continar');
     wordContinar.innerHTML = "";
 
+    if (words.length == 0) {
+       wordContinar.innerHTML = `
+            <div class="text-center col-span-full rounded-xl py-10 space-y-6 font-bangla">
+            <img class="mx-auto" src="./assets/alert-error.png"/>
+                <p class="text-xl font-medium text-gray-400 ">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <h2 class="font-bold text-4xl">নেক্সট Lesson এ যান</h2>
+            </div>
+       `;
+        return;
+    }
+
     words.forEach(word => {
         console.log(word);
 
         const card = document.createElement("div");
-        card.innerHTML= `
+        card.innerHTML = `
         <div class="bg-white rounded-xl shadow-sm text-center py-10 px-5 space-y-4">
                 <h2 class="font-bold text-2xl">${word.word}</h2>
                 <p class="font-semibold">Meaning/ pronounciation</p>
@@ -42,9 +65,9 @@ const displayLessons = (lessons) => {
     for (let lesson of lessons) {
         const btnDiv = document.createElement('div');
         btnDiv.innerHTML = `
-    <button onclick="loadLevelWord(${lesson.level_no})"
-   class="border-2 border-blue-600 text-blue-600 px-2 py-1 rounded-md font-semibold transition duration-300 hover:bg-blue-500 hover:text-white">
-   <i class="fa-solid fa-question font-bold"></i><span class="font-bold">lesson - ${lesson.level_no}</span></button>
+    <button id="lesson-btn-${lesson.level_no}" onclick="loadLevelWord(${lesson.level_no})"
+   class="border-2 border-blue-600 text-blue-600 px-2 py-1 rounded-md font-semibold transition duration-300 hover:bg-blue-500 hover:text-white lesson-btn">
+   <i class="fa-solid fa-book-open font-bold"></i><span class="font-bold">lesson - ${lesson.level_no}</span></button>
     `
         lavelContinar.append(btnDiv);
     }

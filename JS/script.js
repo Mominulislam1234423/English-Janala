@@ -8,28 +8,60 @@ const loadLessons = () => {
 const removeActive = () => {
     const lessonButtons = document.querySelectorAll(".lesson-btn");
 
-    lessonButtons.forEach(btn=> btn.classList.remove("active"));
+    lessonButtons.forEach(btn => btn.classList.remove("active"));
 }
 
 const loadLevelWord = (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
         .then(res => res.json())
-        .then(data =>{
+        .then(data => {
             removeActive();
             const clickBtn = document.getElementById(`lesson-btn-${id}`)
             // console.log(clickBtn)
             clickBtn.classList.add("active");
-             displayLevelWord(data.data)
+            displayLevelWord(data.data)
         })
 }
+
+const loadWordDetail = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/word/${id}`;
+    // console.log(url);
+    const res = await fetch(url);
+    const details = await res.json();
+    displayWordDetails(details.data)
+};
+
+const displayWordDetails = (word) => {
+    const deteilsBox = document.getElementById('deteils-continar');
+    deteilsBox.innerHTML = `
+     <div>
+        <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
+        </div>
+        <div>
+            <h2 class="font-bold">Meaning</h2>
+                <p>${word.meaning}</p>
+                </div>
+                <div>
+                <h2 class="font-bold">Example</h2>
+                <div>
+                <p>${word.sentence}</p>
+                <h2 class="font-bold">Synonym</h2>
+                <button class="btn">syn1</button>
+                <button class="btn">syn1</button>
+                <button class="btn">syn1</button>
+                </div>     
+             </div>
+    `
+    document.getElementById("my_modal").showModal();
+};
 
 const displayLevelWord = (words) => {
     const wordContinar = document.getElementById('word-continar');
     wordContinar.innerHTML = "";
 
     if (words.length == 0) {
-       wordContinar.innerHTML = `
+        wordContinar.innerHTML = `
             <div class="text-center col-span-full rounded-xl py-10 space-y-6 font-bangla">
             <img class="mx-auto" src="./assets/alert-error.png"/>
                 <p class="text-xl font-medium text-gray-400 ">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
@@ -40,7 +72,7 @@ const displayLevelWord = (words) => {
     }
 
     words.forEach(word => {
-        console.log(word);
+        // console.log(word);
 
         const card = document.createElement("div");
         card.innerHTML = `
@@ -49,7 +81,7 @@ const displayLevelWord = (words) => {
                 <p class="font-semibold">Meaning/ pronounciation</p>
                 <div class="text-2xl font-semibold font-bangla">"${word.meaning} / ${word.pronunciation}"</div>
                 <div class="flex justify-between items-center">
-                    <button class="btn bg-[#1A91FF10]"><i class="fa-solid fa-circle-info"></i></button>
+                    <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1A91FF10]"><i class="fa-solid fa-circle-info"></i></button>
                     <button class="btn bg-[#1A91FF10]"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>

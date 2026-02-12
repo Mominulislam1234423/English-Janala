@@ -86,12 +86,14 @@
                 <div>
                     <p class="font-bold text-4xl mb-4 font-['Poppins']"><span class="text-blue-400">English</span> is
                         Easy!!</p>
-                    <p class="font-semibold font-['Hind Siliguri']">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার
+                    <p class="font-semibold font-['Hind Siliguri']">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি
+                        নতুন হন অথবা আপনার
                         দক্ষতা বাড়াতে চান, আমাদের
                         Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
                     <div class="flex flex-col gap-2 mt-4">
-                        <input type="text" class="border-2 w-1/2 p-1" placeholder="Enter Your Name" autocomplete="off" />
-                        <input type="password" class="border-2 w-1/2 p-1" placeholder="Password" autocomplete="off"/>
+                        <input type="text" class="border-2 w-1/2 p-1" placeholder="Enter Your Name"
+                            autocomplete="off" />
+                        <input type="password" class="border-2 w-1/2 p-1" placeholder="Password" autocomplete="off" />
                         <button class="btn btn-neutral bg-[#422AD5] font-bold text-white w-32 mt-2">Get Started</button>
                     </div>
                 </div>
@@ -118,8 +120,24 @@
                 <p class="text-xl font-medium text-gray-400 ">আপনি এখনো কোন Lesson Select করেন নি</p>
                 <h2 class="font-bold text-4xl">একটি Lesson Select করুন।</h2>
             </div>
-           
+
         </section>
+        <!-- modal section  -->
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+        <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="deteils-continar" class="space-y-5">
+                   
+                </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
 
     </main>
     <footer>

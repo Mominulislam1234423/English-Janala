@@ -1,3 +1,8 @@
+const createElements = (arr) => {
+    const htmlElements = arr.map((el) => `<span class="btn">${el}</span>`);
+   return htmlElements.join(" ");
+};
+
 
 const loadLessons = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all")
@@ -47,9 +52,7 @@ const displayWordDetails = (word) => {
                 <div>
                 <p>${word.sentence}</p>
                 <h2 class="font-bold">Synonym</h2>
-                <button class="btn">syn1</button>
-                <button class="btn">syn1</button>
-                <button class="btn">syn1</button>
+                <div class="">${createElements(word.synonyms)}</div>
                 </div>     
              </div>
     `

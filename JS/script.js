@@ -2,6 +2,15 @@ const createElements = (arr) => {
     const htmlElements = arr.map((el) => `<span class="btn">${el}</span>`);
    return htmlElements.join(" ");
 };
+const manageSpinner=(ststus)=>{
+    if(ststus==true){
+        document.getElementById('spinner').classList.remove("hidden");
+        document.getElementById('word-continar').classList.add("hidden");
+    }else{
+        document.getElementById('word-continar').classList.remove("hidden");
+        document.getElementById('spinner').classList.add("hidden"); 
+    }
+};
 
 
 const loadLessons = () => {
@@ -17,6 +26,7 @@ const removeActive = () => {
 }
 
 const loadLevelWord = (id) => {
+    manageSpinner(true);
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
         .then(res => res.json())
@@ -71,6 +81,7 @@ const displayLevelWord = (words) => {
                 <h2 class="font-bold text-4xl">নেক্সট Lesson এ যান</h2>
             </div>
        `;
+       manageSpinner(false);
         return;
     }
 
@@ -91,6 +102,7 @@ const displayLevelWord = (words) => {
         `
         wordContinar.append(card);
     });
+    manageSpinner(false);
 }
 
 const displayLessons = (lessons) => {
@@ -103,7 +115,7 @@ const displayLessons = (lessons) => {
     <button id="lesson-btn-${lesson.level_no}" onclick="loadLevelWord(${lesson.level_no})"
    class="border-2 border-blue-600 text-blue-600 px-2 py-1 rounded-md font-semibold transition duration-300 hover:bg-blue-500 hover:text-white lesson-btn">
    <i class="fa-solid fa-book-open font-bold"></i><span class="font-bold">lesson - ${lesson.level_no}</span></button>
-    `
+    `;
         lavelContinar.append(btnDiv);
     }
 }

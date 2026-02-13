@@ -120,3 +120,15 @@ const displayLessons = (lessons) => {
     }
 }
 loadLessons()
+
+document.getElementById("btn-Search").addEventListener('click', function(){
+    const input = document.getElementById("input-search");
+    const SearchValue = input.value.trim().toLowerCase();
+    fetch("https://openapi.programming-hero.com/api/words/all")
+    .then(res => res.json())
+    .then((data)=>displaySearch(data))
+})
+
+const displaySearch = (data) => {
+    
+}

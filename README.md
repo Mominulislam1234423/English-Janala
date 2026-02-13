@@ -1,67 +1,82 @@
 📘 English Janala
 
-English Janala is a simple and interactive English vocabulary learning platform.
-Users can explore different levels and learn new words dynamically using API data.
+English Janala is a simple and interactive English learning web application where users can explore vocabulary by levels and improve their language skills.
 
-This project is fully frontend-based and built using HTML, Tailwind CSS, and JavaScript.
+🔗 Live Website:
+https://mominulislam1234423.github.io/English-Janala/
 
 🚀 Features
 
-📚 View All Levels (Dynamic from API)
+📚 View All Vocabulary Levels
 
-🔍 Load Words by Level
+🔍 Get Words by Specific Level
 
-📝 Word Details Modal
+🧠 Word Meaning & Pronunciation
 
-🎨 Responsive UI with Tailwind CSS
+⚡ Dynamic Data Loading using API
 
-⚡ Dynamic Data Fetch using JavaScript (Fetch API)
+🎨 Clean and Responsive UI
+
+🔄 Loading Spinner for Better UX
+
+📱 Fully Responsive Design
 
 🛠️ Technologies Used
 
 HTML5
 
-Tailwind CSS
-
-Daisy ui
+CSS3
 
 JavaScript (ES6)
 
-REST API
+Tailwind CSS
+
+DaisyUI
+
+Open API (Programming Hero)
 
 🌐 API Endpoints Used
-🔹 Get All Levels
-https://openapi.programming-hero.com/api/levels/all
 
-🔹 Get Words by Level
-https://openapi.programming-hero.com/api/level/{id}
+📂 Project Structure
+English-Janala/
+│
+├── index.html
+├── script.js
+├── style.css
+├── assets/
+└── README.md
 
+📸 Screenshot
+
+(Add your project screenshot here)
 
 Example:
 
-https://openapi.programming-hero.com/api/level/5
+![English Janala Screenshot](./assets/screenshot.png)
 
-📂 Project Structure
-├── index.html
-├── script.js
-├── style.css (if used)
-└── assets/
+💡 How to Run Locally
 
-▶️ How to Run Locally
-https://mominulislam1234423.github.io/English-Janala/
-🎯 Purpose of This Project
+Clone the repository
 
-This project was built for practicing:
+git clone https://github.com/Mominulislam1234423/English-Janala.git
 
-DOM manipulation
 
-API integration
+Open the folder
 
-Dynamic UI rendering
+Run index.html in your browser
 
-Tailwind CSS styling
+✨ Future Improvements
+
+Add Search Functionality
+
+Add User Authentication
+
+Add Progress Tracking System
+
+Dark Mode Feature
 
 👨‍💻 Author
 
-Mominul
-Frontend Developer (Learning Phase 🚀)
+Mominul Islam
+Frontend Developer
+GitHub: https://github.com/Mominulislam1234423

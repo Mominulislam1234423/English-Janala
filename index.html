@@ -114,7 +114,7 @@
             <div id="lavel-continar" class="flex gap-4 flex-wrap justify-center">
             </div>
         </section>
-
+        <!-- search section -->
         <section class="flex justify-center my-10">
             <div class="join flex justify-center items-center">
                 <div>
@@ -126,11 +126,14 @@
             </div>
         </section>
 
+        <!-- spinner section -->
         <section id="spinner" class="flex justify-center items-center py-10 hidden">
             <span class="loading loading-bars loading-xl"></span>
         </section>
 
-        <section id="word-continar" class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-3 gap-5">
+        <!-- Select section  -->
+        <section id="word-continar"
+            class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
             <div class="text-center bg-sky-100 col-span-full rounded-xl py-10 space-y-6 font-bangla">
                 <p class="text-xl font-medium text-gray-400 ">আপনি এখনো কোন Lesson Select করেন নি</p>
@@ -138,9 +141,8 @@
             </div>
 
         </section>
+
         <!-- modal section  -->
-        <!-- Open the modal using ID.showModal() method -->
-        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
         <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box">
                 <div id="deteils-continar" class="space-y-5">
@@ -154,6 +156,51 @@
                 </div>
             </div>
         </dialog>
+
+        <!-- Questions section -->
+        <section>
+            <div class="text-center mt-20">
+                <p class="font-bold text-4xl mb-4 font-['Poppins']"><span class="text-blue-400">Frequently </span>
+                    Asked Questions</p>
+            </div>
+            <div class="mt-20 w-11/12 mx-auto space-y-4">
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title font-semibold">1. How can I start learning English on this website?</div>
+                    <div class="collapse-content text-sm">You can start by exploring our beginner lessons, interactive
+                        exercises, and quizzes. We also offer structured courses to guide you step by step.</div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-semibold">2. Is this website free to use?</div>
+                    <div class="collapse-content text-sm">Yes, our website offers free access to many basic courses and
+                        learning materials. However, some advanced courses and premium features may require a
+                        subscription.</div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-semibold">3. Do I need to create an account?</div>
+                    <div class="collapse-content text-sm">You can browse some content without an account. However,
+                        creating an account allows you to track your progress, access personalized recommendations, and
+                        unlock additional features.
+                    </div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-semibold">4. How can I build my English vocabulary?</div>
+                    <div class="collapse-content text-sm">You can improve your vocabulary by practicing daily lessons,
+                        completing quizzes, learning new words with examples, and reviewing previous lessons regularly.
+                    </div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-semibold">5. Do you offer certificates for completed courses?</div>
+                    <div class="collapse-content text-sm">Yes, we provide certificates for selected courses after
+                        successful completion and passing the final assessment.
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
     <footer>

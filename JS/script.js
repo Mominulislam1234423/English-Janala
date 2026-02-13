@@ -1,14 +1,14 @@
 const createElements = (arr) => {
     const htmlElements = arr.map((el) => `<span class="btn">${el}</span>`);
-   return htmlElements.join(" ");
+    return htmlElements.join(" ");
 };
-const manageSpinner=(ststus)=>{
-    if(ststus==true){
+const manageSpinner = (ststus) => {
+    if (ststus == true) {
         document.getElementById('spinner').classList.remove("hidden");
         document.getElementById('word-continar').classList.add("hidden");
-    }else{
+    } else {
         document.getElementById('word-continar').classList.remove("hidden");
-        document.getElementById('spinner').classList.add("hidden"); 
+        document.getElementById('spinner').classList.add("hidden");
     }
 };
 
@@ -81,7 +81,7 @@ const displayLevelWord = (words) => {
                 <h2 class="font-bold text-4xl">নেক্সট Lesson এ যান</h2>
             </div>
        `;
-       manageSpinner(false);
+        manageSpinner(false);
         return;
     }
 
@@ -121,14 +121,17 @@ const displayLessons = (lessons) => {
 }
 loadLessons()
 
-document.getElementById("btn-Search").addEventListener('click', function(){
+document.getElementById("btn-Search").addEventListener('click', function () {
+    removeActive();
     const input = document.getElementById("input-search");
     const SearchValue = input.value.trim().toLowerCase();
     fetch("https://openapi.programming-hero.com/api/words/all")
-    .then(res => res.json())
-    .then((data)=>displaySearch(data))
-})
+        .then(res => res.json())
+        .then((data) => {
+            const allWords = data.data;
+            const filterWord = allWords.filter((word) => word.word.toLowerCase().includes(SearchValue));
 
-const displaySearch = (data) => {
-    
-}
+            displayLevelWord(filterWord);
+        });
+});
+

@@ -48,8 +48,6 @@ English-Janala/
 
 📸 Screenshot
 
-(Add your project screenshot here)
-
 Example:
 
 ![English Janala Screenshot](./assets/screenshot.png)
